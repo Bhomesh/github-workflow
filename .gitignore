@@ -1,0 +1,27 @@
+# Ignore GitHub Actions workflow files
+# .github/workflows/
+
+# Ignore the entire .github directory
+# Uncomment the next line if you want to ignore everything in .github
+# .github/
+
+# Other common entries (you can uncomment or add as needed):
+# Node.js
+# node_modules/
+# npm-debug.log
+
+# Python
+# *.pyc
+# __pycache__/
+# venv/
+
+# IDEs and editors
+# .vscode/
+# .idea/
+# *.swp
+# *.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
