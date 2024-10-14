@@ -13,17 +13,23 @@ This project uses GitHub Actions for continuous integration and deployment. Belo
 
 ## About
 
-[Add a brief description of your project here]
+This project demonstrates the use of GitHub Actions for continuous integration and deployment. It includes ESLint checks, frontend testing, and deployment pipelines for both staging and production environments.
 
 ## Getting Started
 
-[Add instructions on how to set up and run your project]
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run ESLint: `npm run lint`
+4. Start the frontend server: `npm start`
 
 ## Contributing
 
-[Add guidelines for contributing to your project]
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`
+3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
+4. Push to the branch: `git push origin feature/AmazingFeature`
+5. Open a pull request
 
 ## License
 
-[Specify the license for your project]
-
+This project is licensed under the MIT License.

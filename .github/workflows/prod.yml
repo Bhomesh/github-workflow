@@ -1,0 +1,58 @@
+name: Production Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  eslint:
+    uses: ./.github/workflows/eslint.yml
+
+  frontend-test:
+    needs: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Start frontend server
+        run: |
+          cd frontend
+          npm start &
+          sleep 10  # Give the server some time to start
+
+      - name: Test frontend
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+          if [ $response = "200" ]; then
+            echo "Frontend is working correctly"
+            exit 0
+          else
+            echo "Frontend is not working. HTTP status code: $response"
+            exit 1
+          fi
+
+  deploy:
+    needs: [eslint, frontend-test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production..."
+          # Add your deployment steps here
+
