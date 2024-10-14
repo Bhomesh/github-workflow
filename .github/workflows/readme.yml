@@ -1,0 +1,31 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # This will run every hour
+  workflow_dispatch:  # This allows manual triggering
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Update README
+        run: |
+          # Add your script to update README here
+          # For example:
+          echo "Last updated: $(date)" >> README.md
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update README" && git push)

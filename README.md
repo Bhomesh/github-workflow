@@ -5,7 +5,7 @@
 [![Production Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml)
 [![Staging Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml)
 [![ESLint Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml)
-[![Greetings Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/greetings.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/greetings.yml)
+[![Update README](https://github.com/Bhomesh/github-workflow/actions/workflows/readme.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/readme.yml)
 
 A modern CI/CD pipeline demonstration using GitHub Actions
 
@@ -24,6 +24,7 @@ This project showcases the power of GitHub Actions for continuous integration an
 - 🌐 Frontend testing to ensure website functionality
 - 🔍 Staging workflow for non-main branch testing
 - 🚀 Production workflow for main branch deployment
+- 🔄 Hourly README updates
 
 ## 🚀 Workflows
 
@@ -51,6 +52,15 @@ Runs on all branches except `main`, after ESLint success:
 Runs on the `main` branch, after ESLint success:
 1. 🌐 Tests frontend functionality
 2. 🚀 Deploys to production if all tests pass
+</details>
+
+### README Update Workflow
+<details>
+<summary>Click to expand</summary>
+
+Runs every hour:
+1. 🔄 Updates the README with the latest information
+2. 📝 Commits and pushes changes if any were made
 </details>
 
 ## 🏁 Getting Started
