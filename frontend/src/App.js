@@ -1,23 +1,34 @@
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
 
 function App() {
-  return (
+  const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/data'); // Replace with your backend URL
+            // const response = await fetch('http://backend-service/api/data');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const jsonData = await response.json();
+            setData(jsonData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Data from Express:</h1>
+          {data ? <p>{data.message}</p> : <p>Loading...</p>}
       </header>
     </div>
   );
