@@ -5,7 +5,7 @@
 [![Production Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml)
 [![Staging Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml)
 [![ESLint Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml)
-[![Update README](https://github.com/Bhomesh/github-workflow/actions/workflows/readme.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/readme.yml)
+
 
 A modern CI/CD pipeline demonstration using GitHub Actions
 
