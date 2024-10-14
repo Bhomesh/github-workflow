@@ -1,56 +1,85 @@
-# Project Name
+<div align="center">
 
-This project uses GitHub Actions for continuous integration and deployment. Below are the current statuses of our pipelines:
+# 🚀 Project Name
 
-## Pipeline Statuses
+[![Production Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml)
+[![Staging Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml)
+[![ESLint Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml)
+[![Greetings Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/greetings.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/greetings.yml)
 
-| Pipeline | Status |
-|----------|--------|
-| Production | ![Production Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml/badge.svg) |
-| Staging | ![Staging Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml/badge.svg) |
-| ESLint | ![ESLint Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml/badge.svg) |
-| Greetings | ![Greetings Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/greetings.yml/badge.svg) |
+A modern CI/CD pipeline demonstration using GitHub Actions
 
-## About
+[Getting Started](#getting-started) •
+[Workflows](#workflows) •
+[Contributing](#contributing) •
+[License](#license)
 
-This project demonstrates the use of GitHub Actions for continuous integration and deployment. It includes:
+</div>
 
-- ESLint checks for code quality
-- Frontend testing to ensure the website is working
-- A staging workflow for testing changes in non-main branches
-- A production workflow for deploying changes from the main branch
+## 📋 About
 
-## Workflows
+This project showcases the power of GitHub Actions for continuous integration and deployment. It features:
+
+- 🧹 ESLint checks for code quality
+- 🌐 Frontend testing to ensure website functionality
+- 🔍 Staging workflow for non-main branch testing
+- 🚀 Production workflow for main branch deployment
+
+## 🚀 Workflows
 
 ### ESLint Workflow
-The ESLint workflow runs on all branches and pull requests. It performs the following steps:
-1. Runs ESLint checks on the codebase
+<details>
+<summary>Click to expand</summary>
+
+Runs on all branches and pull requests:
+1. 🧹 Performs ESLint checks on the codebase
+</details>
 
 ### Staging Workflow
-The staging workflow runs on all branches except `main`, but only if the ESLint workflow succeeds. It performs the following steps:
-1. Tests if the frontend is working correctly
-2. Notifies on successful completion of all tests
+<details>
+<summary>Click to expand</summary>
+
+Runs on all branches except `main`, after ESLint success:
+1. 🌐 Tests frontend functionality
+2. 📢 Notifies on successful test completion
+</details>
 
 ### Production Workflow
-The production workflow runs on the `main` branch, but only if the ESLint workflow succeeds. It performs the following steps:
-1. Tests if the frontend is working correctly
-2. Deploys to production if all tests pass
+<details>
+<summary>Click to expand</summary>
 
-## Getting Started
+Runs on the `main` branch, after ESLint success:
+1. 🌐 Tests frontend functionality
+2. 🚀 Deploys to production if all tests pass
+</details>
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run ESLint: `npm run lint`
-4. Start the frontend server: `npm start`
+## 🏁 Getting Started
 
-## Contributing
+1. Clone the repository   ```
+   git clone https://github.com/Bhomesh/github-workflow.git   ```
+2. Install dependencies   ```
+   npm install   ```
+3. Run ESLint   ```
+   npm run lint   ```
+4. Start the frontend server   ```
+   npm start   ```
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
-4. Push to the branch: `git push origin feature/AmazingFeature`
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a pull request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+Made with ❤️ by [Your Name/Organization]
+</div>
