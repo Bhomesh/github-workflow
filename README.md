@@ -91,5 +91,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 <div align="center">
-Made with ❤️ by [Bhomesh](https://github.com/Bhomesh)
+Made with ❤️ by <a href="https://github.com/Bhomesh">Bhomesh</a>
 </div>
