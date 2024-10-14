@@ -8,6 +8,7 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,8 +25,12 @@ jobs:
           echo "Last updated: $(date)" >> README.md
 
       - name: Commit and push if changed
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update README" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update README")
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Bhomesh/github-workflow.git
+          git push origin main
