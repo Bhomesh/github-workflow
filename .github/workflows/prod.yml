@@ -1,17 +1,16 @@
 name: Production Workflow
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["ESLint"]
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
-  eslint:
-    uses: ./.github/workflows/eslint.yml
-
   frontend-test:
-    needs: eslint
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -45,7 +44,7 @@ jobs:
           fi
 
   deploy:
-    needs: [eslint, frontend-test]
+    needs: [frontend-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -55,4 +54,3 @@ jobs:
         run: |
           echo "Deploying to production..."
           # Add your deployment steps here
-

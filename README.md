@@ -13,7 +13,28 @@ This project uses GitHub Actions for continuous integration and deployment. Belo
 
 ## About
 
-This project demonstrates the use of GitHub Actions for continuous integration and deployment. It includes ESLint checks, frontend testing, and deployment pipelines for both staging and production environments.
+This project demonstrates the use of GitHub Actions for continuous integration and deployment. It includes:
+
+- ESLint checks for code quality
+- Frontend testing to ensure the website is working
+- A staging workflow for testing changes in non-main branches
+- A production workflow for deploying changes from the main branch
+
+## Workflows
+
+### ESLint Workflow
+The ESLint workflow runs on all branches and pull requests. It performs the following steps:
+1. Runs ESLint checks on the codebase
+
+### Staging Workflow
+The staging workflow runs on all branches except `main`, but only if the ESLint workflow succeeds. It performs the following steps:
+1. Tests if the frontend is working correctly
+2. Notifies on successful completion of all tests
+
+### Production Workflow
+The production workflow runs on the `main` branch, but only if the ESLint workflow succeeds. It performs the following steps:
+1. Tests if the frontend is working correctly
+2. Deploys to production if all tests pass
 
 ## Getting Started
 
