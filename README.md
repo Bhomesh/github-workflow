@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Project Name
+# 🚀 Github Workflows
 
 [![Production Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/prod.yml)
 [![Staging Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/stage.yml)
@@ -81,5 +81,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 <div align="center">
-Made with ❤️ by [Your Name/Organization]
+Made with ❤️ by [Bhomesh](https://github.com/Bhomesh)
 </div>
