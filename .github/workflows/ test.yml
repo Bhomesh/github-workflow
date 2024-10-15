@@ -68,7 +68,7 @@ jobs:
     
 
     deploy:
-        needs: [eslint, frontend-test, backend-test, connecting-frontend-backend]
+        needs: [eslint, frontend-test, backend-test,]
         runs-on: self-hosted
         steps:
             - name: Checkout code
