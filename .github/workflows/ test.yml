@@ -67,6 +67,7 @@ jobs:
                 npm run start
     
     connecting-frontend-backend:
+        needs: [eslint]
         runs-on: self-hosted
         steps:
             - name: Checkout code
