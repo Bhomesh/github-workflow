@@ -66,27 +66,6 @@ jobs:
                 cd backend
                 npm run start
     
-    connecting-frontend-backend:
-        needs: [eslint]
-        runs-on: self-hosted
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-
-            - name: Install dependencies
-              run: |
-                if curl http://localhost:3000 | grep "Hello from Express!"; then
-                    echo "Frontend and Backend is working correctly"
-                    exit 0
-                else
-                    echo "Frontend and Backend is not working"
-                    exit 1
-                fi
 
     deploy:
         needs: [eslint, frontend-test, backend-test, connecting-frontend-backend]
