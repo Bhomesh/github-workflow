@@ -68,7 +68,7 @@ jobs:
     
 
     deploy:
-        needs: [eslint, frontend-test, backend-test,]
+        needs: [eslint, frontend-test, backend-test]
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
