@@ -65,7 +65,7 @@ jobs:
           npm run start
 
   deploy:
-    needs: [frontend-test]
+    needs: [frontend-test, backend-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
