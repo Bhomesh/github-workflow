@@ -1,0 +1,62 @@
+name: testing a workflow
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    eslint:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello World"
+
+    frontend-test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                cd frontend
+                npm ci
+
+            - run: |
+                npm run start
+    backend-test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                cd backend
+                npm ci
+
+            - run: |
+                npm run start
+    
+    connecting-frontend-backend:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                if curl http://localhost:3000 | grep "Hello from Express!"; then
+                    echo "Frontend and Backend is working correctly"
+                    exit 0
+                else
+                    echo "Frontend and Backend is not working"
+                    exit 1
+                fi
+
+    deploy:
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                cd frontend
+                npm run build
+
+    
+
+
+
+
+
+
+
+
+
