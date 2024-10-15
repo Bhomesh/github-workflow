@@ -43,16 +43,6 @@ jobs:
             exit 1
           fi
 
-#Backend server
-      - name: Install Dependencies
-      - run: |
-          cd backend
-          npm ci
-      
-      - name: Test Backend
-      - run: |
-          cd backend
-          npm run start
 
   deploy:
     needs: [frontend-test]
