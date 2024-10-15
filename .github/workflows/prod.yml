@@ -63,6 +63,16 @@ jobs:
         run: |
           cd backend
           npm run start
+      - name: Test Backend
+        run: |
+            response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
+            if [ $response = "200" ]; then
+              echo "Backend is working correctly"
+              exit 0
+            else
+              echo "Backend is not working. HTTP status code: $response"
+              exit 1
+            fi
 
   deploy:
     needs: [frontend-test, backend-test]
@@ -74,4 +84,4 @@ jobs:
       - name: Deploy to production
         run: |
           echo "Deploying to production..."
-          # Add your deployment steps here
+         
