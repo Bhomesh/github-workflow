@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -32,7 +32,7 @@ app.get('/api/data', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
@@ -41,3 +41,12 @@ app.get('/api/data', (req, res) => {
   res.json({ message: 'Hello from Express!' });
   console.log("working");
 });
+
+// Terminate the server after 30 seconds
+setTimeout(() => {
+  console.log('Terminating server after 30 seconds');
+  server.close(() => {
+    console.log('Server terminated');
+    process.exit(0);
+  });
+}, 30000);
