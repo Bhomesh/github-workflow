@@ -9,31 +9,73 @@ jobs:
     eslint:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Hello World"
+            - name: Checkout code
+              uses: actions/checkout@v4
+  
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Install dependencies
+              run: echo "Hello World"
+                
 
     frontend-test:
+        needs: [eslint]
         runs-on: ubuntu-latest
         steps:
-            - run: |
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Install dependencies
+              run: |
                 cd frontend
                 npm ci
 
-            - run: |
+            - name: Start frontend server
+              run: |
                 npm run start
     backend-test:
+        needs: [eslint]
         runs-on: ubuntu-latest
         steps:
-            - run: |
+            - name: Checkout code
+              uses: actions/checkout@v4
+  
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Install dependencies
+              run: |
                 cd backend
                 npm ci
 
-            - run: |
+            - name: Start backend server
+              run: |
                 npm run start
     
     connecting-frontend-backend:
+        needs: [frontend-test, backend-test]
         runs-on: ubuntu-latest
         steps:
-            - run: |
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Install dependencies
+              run: |
                 if curl http://localhost:3000 | grep "Hello from Express!"; then
                     echo "Frontend and Backend is working correctly"
                     exit 0
@@ -43,10 +85,19 @@ jobs:
                 fi
 
     deploy:
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        needs: [eslint, frontend-test, backend-test, connecting-frontend-backend]
         runs-on: ubuntu-latest
         steps:
-            - run: |
+            - name: Checkout code
+              uses: actions/checkout@v4
+  
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Install dependencies
+              run: |
                 cd frontend
                 npm run build
 
