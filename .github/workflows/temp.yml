@@ -1,0 +1,34 @@
+name: Temp Workflow
+
+on:
+  workflow_run:
+    workflows: ["ESLint"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: getting the repo
+        uses: Bhomesh/docker-cli@main
+
+      - name: installing the docker cli
+        run: |
+          cd docker-cli
+          chmod +x docker-cli.sh
+          ./docker-cli.sh
+
+      - name: run test for docker cli
+        run: |
+          docker run hello-world
