@@ -7,6 +7,15 @@ on:
   pull_request:
     branches:
       - '**'  # This will run on pull requests to all branches
+  workflow_call:
+    # Define any inputs or secrets if needed
+    # inputs:
+    #   example_input:
+    #     required: true
+    #     type: string
+    # secrets:
+    #   example_secret:
+    #     required: true
 
 jobs:
   eslint:

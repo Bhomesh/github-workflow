@@ -7,7 +7,6 @@
 [![ESLint Workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/eslint.yml)
 [![testing a workflow](https://github.com/Bhomesh/github-workflow/actions/workflows/test.yml/badge.svg)](https://github.com/Bhomesh/github-workflow/actions/workflows/test.yml)
 
-
 A modern CI/CD pipeline demonstration using GitHub Actions
 
 [Getting Started](#getting-started) •
