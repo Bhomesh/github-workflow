@@ -22,13 +22,13 @@ jobs:
       
       - name: getting the repo
         uses: Bhomesh/docker-cli@main
-
+                 
       - name: installing the docker cli
         run: |
           cd docker-cli
           chmod +x docker-cli.sh
           ./docker-cli.sh
 
-      - name: run test for docker cli
+      - name: run test for docker clia
         run: |
           docker run hello-world
