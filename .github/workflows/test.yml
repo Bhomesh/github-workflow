@@ -1,7 +1,10 @@
 name: testing a workflow
 
 on:
-    push:
+    workflow_run:
+        workflows: ["ESLint"]
+        types:
+            - completed
         branches:
             - main
 
